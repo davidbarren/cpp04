@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/10 13:40:12 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/26 19:45:58 by dbarrene         ###   ########.fr       */
+/*   Created: 2024/08/11 00:12:44 by dbarrene          #+#    #+#             */
+/*   Updated: 2024/08/11 00:13:32 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "../includes/Brain.hpp"
 
-class Dog : public Animal
-{
-	public:
-		void	makeSound() const;
-		Dog();
-		~Dog();
-		Dog& operator=(const Dog &other);
-	private:
-		Dog(const Dog &other);
-		Brain *brn;
-};
-
-#endif
+Brain::Brain(){
+	std::cout << "Brain default constructor called" << std::endl;
+}
+Brain::~Brain(){
+	std::cout << "Brain default destructor called" << std::endl;
+}

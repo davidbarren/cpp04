@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 13:49:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/26 19:51:39 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/08/10 14:31:37 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#include "../includes/WrongAnimal.hpp"
 
-Animal::Animal(): type("Generic Animal"){
-	std::cout << "Default constructor for animal class" << std::endl;
+WrongAnimal::WrongAnimal(): type("Generic WrongAnimal"){
+	std::cout << "Default constructor for wrong animal class" << std::endl;
 }
-Animal::~Animal(){
-	std::cout << "Default destructor for animal class" << std::endl;
+WrongAnimal::~WrongAnimal(){
+	std::cout << "Default destructor for wrong animal class" << std::endl;
 }
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
-	std::cout << "Generic animal noises" << std::endl;
+	std::cout << "Generic wrong animal noises" << std::endl;
 }
 
-const std::string& Animal::getType() const
+const std::string& WrongAnimal::getType() const
 {
 	return (type);
 }
 
-void	Animal::set_type(std::string type)
+void	WrongAnimal::set_type(std::string type)
 {
 	this->type = type;
-}
-Animal &Animal::operator=(const Animal &other)
-{
-	if (this == &other)
-		return (*this);
-	this->type = other.type;
-	return (*this);
 }

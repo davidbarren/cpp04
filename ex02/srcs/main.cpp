@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/10 13:40:12 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/26 19:45:58 by dbarrene         ###   ########.fr       */
+/*   Created: 2024/08/10 13:39:44 by dbarrene          #+#    #+#             */
+/*   Updated: 2024/08/28 14:03:43 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
 
-class Dog : public Animal
+int	main(void)
 {
-	public:
-		void	makeSound() const;
-		Dog();
-		~Dog();
-		Dog& operator=(const Dog &other);
-	private:
-		Dog(const Dog &other);
-		Brain *brn;
-};
+	std::cout << "How am I meant to test this?" << std::endl;
+	const Animal *dog = new Dog;
+	const Animal *cat = new Cat;
+//	Animal a;
+	delete dog;
+	delete cat;
+}
 
-#endif

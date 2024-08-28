@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 13:40:12 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/10 14:25:08 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:57:02 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Animal
 		virtual void	makeSound() const;
 		Animal();
 		virtual ~Animal();
+		Animal& operator=(const Animal &other);
 	private:
 		Animal(const Animal &other);
-		Animal& operator=(const Animal &other);
 };
 
 #endif
