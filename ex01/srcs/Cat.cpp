@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 13:49:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/01 15:50:00 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:01:22 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,17 @@ void	Cat::makeSound() const
 
 Cat::Cat(const Cat &other)
 {
-	Brain *ptr = other.brn;
-	if (this != &other)
-	{
-		if (this->brn)
-			delete this->brn;
-		this->brn = new Brain(*ptr);
+	std::cout << "Copy constructor for cat class" << std::endl;
+		this->brn = new Brain(*other.brn);
 		this->type = other.type;
-	}
 }
 
 Cat &Cat::operator=(const Cat &other)
 {
-	Brain *ptr = other.brn;
+	std::cout << "Copy asssignment for cat class" << std::endl;
 	if (this != &other)
 	{
-		if (this->brn)
-			delete this->brn;
-		this->brn = new Brain(*ptr);
+		this->brn = new Brain(*other.brn);
 		this->type = other.type;
 	}
 	return (*this);

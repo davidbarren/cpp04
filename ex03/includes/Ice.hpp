@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IceMateria.hpp                                     :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:43:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/29 12:57:56 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:23:31 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#ifndef ICE_HPP
+#define ICE_HPP
 #include "AMateria.hpp"
 
 class Ice : public AMateria
@@ -25,3 +26,4 @@ class Ice : public AMateria
 	~Ice();
 	Ice& operator=(Ice const &other);
 };
+#endif

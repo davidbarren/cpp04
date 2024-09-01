@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 13:49:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/01 15:49:19 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:04:04 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,9 @@ Dog::Dog(){
 
 Dog::Dog(const Dog &other)
 {
-	Brain *ptr = other.brn;
-	if (this != &other)
-	{
+	std::cout << "Copy constructor for dog class" << std::endl;
 		this->type = other.type;
-		if (this->brn)
-			delete brn;
-		this->brn = new Brain(*ptr);
-	}
+		this->brn = new Brain(*other.brn);
 }
 
 Dog::~Dog(){
@@ -41,13 +36,11 @@ void	Dog::makeSound() const
 
 Dog &Dog::operator=(const Dog &other)
 {
-	Brain *ptr = other.brn;
+	std::cout << "Copy assignment operator for dog class " << std::endl;
 	if (this != &other)
 	{
 		this->type = other.type;
-		if (this->brn)
-			delete brn;
-		this->brn = new Brain(*ptr);
+		this->brn = new Brain(*other.brn);
 	}
 	return (*this);
 }

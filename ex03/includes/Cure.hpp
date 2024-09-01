@@ -6,10 +6,11 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:43:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/29 12:58:20 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:12:02 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#ifndef CURE_HPP
+#define CURE_HPP
 #include "AMateria.hpp"
 
 class Cure : public AMateria
@@ -25,3 +26,4 @@ class Cure : public AMateria
 	~Cure();
 	Cure& operator=(Cure const &other);
 };
+#endif

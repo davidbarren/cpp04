@@ -5,36 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/26 03:46:13 by dbarrene          #+#    #+#              #
-#    Updated: 2024/09/01 18:09:50 by dbarrene         ###   ########.fr        #
+#    Created: 2024/09/01 18:14:56 by dbarrene          #+#    #+#              #
+#    Updated: 2024/09/01 18:21:08 by dbarrene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Cats_n_Dogs
-
-COMP = c++
-
-COMPFLAGS = -Wall -Wextra -Werror -pedantic -g #-fsanitize=address
-
+NAME  = Materiae
 SRCDIR = srcs
 OBJDIR = obj
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -pedantic
 SRCS = $(SRCDIR)/main.cpp\
-	   $(SRCDIR)/Animal.cpp\
-	   $(SRCDIR)/Dog.cpp\
-	   $(SRCDIR)/Cat.cpp\
-	   $(SRCDIR)/WrongCat.cpp\
-	   $(SRCDIR)/WrongAnimal.cpp\
-	   $(SRCDIR)/Brain.cpp\
 
-OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
+OBJS =  $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
 
 all: $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@$(COMP) $(COMPFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJDIR) $(OBJS)
-	@$(COMP) $(COMPFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "Compiling $(NAME)"
 	@echo "Compilation finished :)"
 
@@ -48,5 +39,5 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@echo "Removing $(NAME)"
+
 re: fclean all
-	
