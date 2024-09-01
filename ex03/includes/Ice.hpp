@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   IceMateria.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/10 13:40:12 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/01 15:52:29 by dbarrene         ###   ########.fr       */
+/*   Created: 2024/08/29 12:43:20 by dbarrene          #+#    #+#             */
+/*   Updated: 2024/08/29 12:57:56 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Dog : public Animal
-{
-	public:
-		void	makeSound() const;
-		Dog();
-		~Dog();
-		Dog& operator=(const Dog &other);
-		Dog(const Dog &other);
-		void	set_ideas(const std::string &idea);
-		std::string get_ideas() ;
-		void	print_ideas_array() const;
+class Ice : public AMateria
+{	
 	private:
-		Brain *brn;
-};
 
-#endif
+	public:
+	AMateria *clone();
+	void use(ICharacter& target);
+	Ice();
+	Ice(std::string const &type);
+	Ice(Ice const &other);
+	~Ice();
+	Ice& operator=(Ice const &other);
+};

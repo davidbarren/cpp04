@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 13:39:44 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/28 13:43:44 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/01 15:56:05 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,33 @@ int	main(void)
 {
 	const Animal *j = new Cat;
 	const Animal *i = new Dog;
-	Animal **animals = new Animal*[50];
-
-	for (int k = 0; k < 25; k++)
+	const int	arrsize = 2;
+	Animal *arr[arrsize];
+	for (int k = 0; k < arrsize; k++)
 	{
-		animals[k] = new Cat;
-		animals[k]->makeSound();
-		animals[k]->getType();
+		if (k % 2)
+			arr[k] = new Cat();
+		else
+			arr[k] = new Dog();
+		arr[k]->makeSound();
 	}
-	for (int k = 25; k < 50; k++)
-	{
-		animals[k] = new Dog;
-		animals[k]->makeSound();
-	}
-	for (int k = 0; k < 50; k++)
-		delete animals[k];
-	delete [] animals;
+	Animal copydog = *arr[0];
+	Animal copycat = *arr[1];
+//	copycat.makeSound();
+//	copydog.makeSound();
+	for (int k = 0; k < arrsize; k++)
+		delete arr[k];
 	delete j;
 	delete i;
-	return 0;
+	copycat.makeSound();
+	copydog.makeSound();
+	 Dog *doggo = new Dog;
+	 Cat *catto = new Cat;
+	doggo->set_ideas("woof");
+	catto->set_ideas("floof");
+	std::cout << "doggo idea: " << doggo->get_ideas() << std::endl;
+	std::cout << "catto idea: " << catto->get_ideas() << std::endl;
+	delete doggo;
+	delete catto;
 }
 

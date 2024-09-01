@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 13:49:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/08/26 19:51:39 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/01 15:35:07 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ Animal::Animal(): type("Generic Animal"){
 }
 Animal::~Animal(){
 	std::cout << "Default destructor for animal class" << std::endl;
+}
+Animal ::Animal(const Animal &other)
+{
+	if (this != &other)
+		this->type = other.type;
 }
 void Animal::makeSound() const
 {

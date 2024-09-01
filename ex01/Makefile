@@ -6,7 +6,7 @@
 #    By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/26 03:46:13 by dbarrene          #+#    #+#              #
-#    Updated: 2024/08/11 00:19:45 by dbarrene         ###   ########.fr        #
+#    Updated: 2024/09/01 15:32:40 by dbarrene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Brain_damagu
 
 COMP = c++
 
-COMPFLAGS = -Wall -Wextra -Werror -pedantic #-g -fsanitize=address
+COMPFLAGS = -Wall -Wextra -Werror -pedantic -g -fsanitize=address
 
 SRCDIR = srcs
 OBJDIR = obj
