@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:43:20 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/01 18:12:02 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:55:57 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CURE_HPP
@@ -16,14 +16,13 @@
 class Cure : public AMateria
 {	
 	private:
-
+	Cure& operator=(Cure const &other);
+	Cure(Cure const &other);
 	public:
-	AMateria *clone();
-	void use(ICharacter& target);
 	Cure();
 	Cure(std::string const &type);
-	Cure(Cure const &other);
 	~Cure();
-	Cure& operator=(Cure const &other);
+	AMateria *clone() const;
+	void use(ICharacter& target);
 };
 #endif

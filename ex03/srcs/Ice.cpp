@@ -6,28 +6,26 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 18:56:57 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/03 14:17:31 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:47:33 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Ice.hpp"
 
-const std::string& Ice::getType(void) const
+Ice::Ice() : AMateria("ice")
 {
-	return (this->type);
-};
+}
 
 void	Ice::use(ICharacter& target)
 {
+	(void) target;
 	std::cout << "* shoots an ice bolt at " << "insert target name here" << std::endl;
 }
 
 AMateria* Ice::clone() const
 {
-	AMateria *ret = new Ice (*this);
-	return (ret);
+	return (new Ice);
 }
 
-Ice::Ice() : AMateria(), type("ice")
-{
+Ice::~Ice(){
 }
