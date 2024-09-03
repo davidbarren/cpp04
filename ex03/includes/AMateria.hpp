@@ -6,12 +6,13 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:04:49 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/01 18:44:41 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:17:24 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef  AMATERIA_HPP
 #define AMATERIA_HPP
 #include <iostream>
+class ICharacter;
 class AMateria
 {
 	protected:
