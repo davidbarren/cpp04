@@ -6,11 +6,12 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 18:56:57 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/03 14:47:33 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/05 17:59:47 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Ice.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice() : AMateria("ice")
 {
@@ -19,7 +20,7 @@ Ice::Ice() : AMateria("ice")
 void	Ice::use(ICharacter& target)
 {
 	(void) target;
-	std::cout << "* shoots an ice bolt at " << "insert target name here" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
 }
 
 AMateria* Ice::clone() const
