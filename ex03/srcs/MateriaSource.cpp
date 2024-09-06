@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:48:13 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/05 18:01:28 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:55:31 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,26 @@
 #include "Cure.hpp"
 
 MateriaSource::MateriaSource(){
+//	for(int i = 0; i < 3; i++)
+//		m_spellbook[i] = nullptr;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
-	this->m_spellbook[0] = other.m_spellbook[0];
-	this->m_spellbook[0] = nullptr;
+	for(int i = 0; i < 3; i++)
+	{
+		if (other.m_spellbook[i])
+			m_spellbook[i] = other.m_spellbook[i]->clone();
+	}
 }
 
 MateriaSource::~MateriaSource(){
+
+	for(int i = 0; i < 3; i++)
+	{
+		delete m_spellbook[i];
+		delete m_trashcan[i];
+	}
 }
 
 void	MateriaSource::learnMateria(AMateria *src)
@@ -31,7 +42,8 @@ void	MateriaSource::learnMateria(AMateria *src)
 	static int i = 0;
 	if (i >= 3)
 		return ;
-	m_spellbook[i] = src;
+	m_trashcan[i] = src;
+	m_spellbook[i] = src->clone();
 	i++;
 }
 

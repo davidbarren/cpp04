@@ -6,19 +6,19 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:01:02 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/06 13:54:44 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:52:00 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character() : m_name("Unknown"){
+Character::Character() : m_index(0), m_name("Unknown"){
 //	for(int i = 0; i > 4; i++)
 //		inv[i] = nullptr;
 }
 
-Character::Character(std::string name) : m_name(name){
+Character::Character(std::string name) :m_index(0), m_name(name){
 //	for(int i = 0; i > 4; i++)
 //		inv[i] = nullptr;
 }
@@ -26,7 +26,7 @@ Character::Character(std::string name) : m_name(name){
 Character::Character(const Character& other)
 {
 	this->m_name = other.m_name;
-	for (int i = 0; i > 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 			if (inv[i])
 		inv[i] = other.inv[i]->clone();
@@ -38,7 +38,7 @@ Character& Character::operator=(const Character& other)
 	if (this != &other)
 	{
 		m_name = other.m_name;
-		for (int i = 0; i > 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			if (inv[i])
 				inv[i] = other.inv[i]->clone();
@@ -66,6 +66,8 @@ void	Character::equip(AMateria *m)
 		if (!inv[i])
 		{
 			inv[i] = m->clone();
+			floor[m_index] = m;
+			m_index++;
 			return ;
 		}
 	}
@@ -75,17 +77,16 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	static int i = 0;
-	if (i >= 500)
+	if (m_index >= 500)
 		return ;
 	if (!inv[idx])
 	{
 		std::cout << "can not unequip an empty slot" << std::endl;
 		return ;
 	}
-	floor[i] = inv[idx];
-	idx[inv] = nullptr;
-	i++;
+	floor[m_index] = inv[idx];
+	inv[idx] = nullptr;
+	m_index++;
 }
 
 void	Character::use(int idx, ICharacter& target)

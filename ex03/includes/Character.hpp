@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:58:25 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/06 12:27:26 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:49:41 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHARACTER_HPP
@@ -17,6 +17,7 @@
 class Character: public ICharacter
 {
 	private:
+		int			m_index;
 		std::string	 m_name;
 		AMateria	*inv[4]{};
 		AMateria	*floor[500]{};
