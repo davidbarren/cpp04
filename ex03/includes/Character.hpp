@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:58:25 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/05 17:09:59 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:27:26 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHARACTER_HPP
@@ -18,8 +18,10 @@ class Character: public ICharacter
 {
 	private:
 		std::string	 m_name;
-		AMateria	*inv[4];
+		AMateria	*inv[4]{};
+		AMateria	*floor[500]{};
 	public:
+		Character& operator=(const Character& other);
 		Character(std::string name);
 		Character();
 		Character(const Character& other);
@@ -28,5 +30,6 @@ class Character: public ICharacter
 		void	equip(AMateria *m);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
+//		void	printInventory() const;
 };
 #endif

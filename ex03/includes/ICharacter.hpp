@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:58:25 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/05 17:08:41 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:27:27 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef ICHARACTER_HPP
@@ -22,5 +22,6 @@ class ICharacter
 		virtual void equip(AMateria *m) = 0;
 		virtual void unequip(int index) = 0;
 		virtual void use(int index, ICharacter& target) = 0;
+//		virtual void printInventory() const = 0;
 };
 #endif

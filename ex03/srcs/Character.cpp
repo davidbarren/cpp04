@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:01:02 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/05 18:28:49 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 13:54:44 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,78 @@
 #include "AMateria.hpp"
 
 Character::Character() : m_name("Unknown"){
-	for(int i = 0; i > 4; i++)
-		inv[i] = nullptr;
+//	for(int i = 0; i > 4; i++)
+//		inv[i] = nullptr;
 }
 
 Character::Character(std::string name) : m_name(name){
-	for(int i = 0; i > 4; i++)
-		inv[i] = nullptr;
+//	for(int i = 0; i > 4; i++)
+//		inv[i] = nullptr;
 }
 
 Character::Character(const Character& other)
 {
 	this->m_name = other.m_name;
+	for (int i = 0; i > 4; i++)
+	{
+			if (inv[i])
+		inv[i] = other.inv[i]->clone();
+	}
+}
+
+Character& Character::operator=(const Character& other)
+{
+	if (this != &other)
+	{
+		m_name = other.m_name;
+		for (int i = 0; i > 4; i++)
+		{
+			if (inv[i])
+				inv[i] = other.inv[i]->clone();
+		}
+	}
+	return (*this);
 }
 
 Character::~Character(){
-	for (int i = 0; i > 4; i++)
+	for (int i = 0; i < 4; i++)
 		delete inv[i];
+	for (int i = 0; i < 500; i++)
+		delete floor[i];
 }
 
 std::string const& Character::getName() const
 {
 	return (this->m_name);
 }
-//void	Character::populate_unequipped(AMateria **unequipped, int elementcount)
-//{
-//
-//}
+
 void	Character::equip(AMateria *m)
 {
-	static int i = 0;
-	if (i > 3)
+	for (int i = 0; i < 4; i++)
 	{
-		std::cout << m_name << "'s inventory is full" << std::endl;
-		return ;
+		if (!inv[i])
+		{
+			inv[i] = m->clone();
+			return ;
+		}
 	}
-	inv[i] = m;
-	i++;
+	std::cout << m_name << "'s inventory is full" << std::endl;
+	return ;
 };
 
 void	Character::unequip(int idx)
 {
+	static int i = 0;
+	if (i >= 500)
+		return ;
 	if (!inv[idx])
 	{
 		std::cout << "can not unequip an empty slot" << std::endl;
 		return ;
 	}
-//	m_delcount += 1;
-	inv[idx] = nullptr;
+	floor[i] = inv[idx];
+	idx[inv] = nullptr;
+	i++;
 }
 
 void	Character::use(int idx, ICharacter& target)
@@ -71,3 +95,13 @@ void	Character::use(int idx, ICharacter& target)
 	else
 		std::cout << "No Materia Equipped" << std::endl;
 }
+
+/*void	Character::printInventory() const
+{
+	for(int i = 0; i < 4; i++)
+	{
+		std::cout << "address of array elements" << std::endl;
+		std::cout << "index:" << i << ": " << inv[i] << std::endl;
+	}
+		
+}*/
