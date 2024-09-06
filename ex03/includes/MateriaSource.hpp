@@ -6,7 +6,7 @@
 /*   By: dbarrene <dbarrene@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 18:45:55 by dbarrene          #+#    #+#             */
-/*   Updated: 2024/09/06 14:54:34 by dbarrene         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:58:23 by dbarrene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ class	MateriaSource : public IMateriaSource
 		MateriaSource();
 		MateriaSource(const MateriaSource &other);
 		~MateriaSource();
-		MateriaSource& operator=(const MateriaSource &other);
-		void learnMateria(AMateria *src);
-		AMateria* createMateria(std::string const &type);
+		MateriaSource&	operator=(const MateriaSource &other);
+		void			learnMateria(AMateria *src);
+		AMateria		*createMateria(std::string const &type);
+		bool			check_Trash(AMateria *m);
 	private:
-		AMateria *m_spellbook[4]{};
-		AMateria *m_trashcan[4]{};
+		AMateria	*m_spellbook[4]{};
+		AMateria	*m_trashcan[4]{};
+		int			m_index;
 
 };
 #endif
